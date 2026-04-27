@@ -1,5 +1,6 @@
 import { FadeIn } from './FadeIn';
 import { CtaLink } from './Nav';
+import { HeroVideo } from './HeroVideo';
 import type { Theme } from '../theme';
 
 interface HeroProps {
@@ -115,7 +116,7 @@ export function Hero({ theme, accent, showGrid, centered }: HeroProps) {
         </div>
       </FadeIn>
 
-      {/* Hero media placeholder */}
+      {/* Hero video — plays once on scroll into view */}
       <FadeIn
         delay={0.2}
         style={{
@@ -126,7 +127,7 @@ export function Hero({ theme, accent, showGrid, centered }: HeroProps) {
           margin: '64px auto 0',
         }}
       >
-        <HeroMediaPlaceholder theme={theme} />
+        <HeroVideo />
       </FadeIn>
     </section>
   );
@@ -149,60 +150,5 @@ function GridOverlay({ accent }: { accent: string }) {
         pointerEvents: 'none',
       }}
     />
-  );
-}
-
-function HeroMediaPlaceholder({ theme }: { theme: Theme }) {
-  return (
-    <div
-      style={{
-        width: '100%',
-        paddingBottom: '56.25%',
-        position: 'relative',
-        borderRadius: 16,
-        background: `repeating-linear-gradient(
-          45deg,
-          ${theme.border} 0px,
-          ${theme.border} 10px,
-          transparent 10px,
-          transparent 20px
-        )`,
-        border: `1px dashed ${theme.border}`,
-        overflow: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 8,
-        }}
-      >
-        <span
-          style={{
-            fontSize: 13,
-            fontFamily: 'monospace',
-            color: theme.heroTextMuted,
-            opacity: 0.7,
-          }}
-        >
-          [ HERO VIDEO or PRODUCT SCREENSHOT ]
-        </span>
-        <span
-          style={{
-            fontSize: 12,
-            fontFamily: 'monospace',
-            color: theme.heroTextMuted,
-            opacity: 0.4,
-          }}
-        >
-          recommended: 16:9 demo reel or dashboard screenshot
-        </span>
-      </div>
-    </div>
   );
 }
