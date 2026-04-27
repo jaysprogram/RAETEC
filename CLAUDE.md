@@ -13,7 +13,6 @@
 npm run dev       # dev server at http://localhost:5173
 npm run build     # tsc type-check + vite production build → dist/
 npm run preview   # serve dist/ locally
-npm run lint      # eslint
 ```
 
 ## Project structure
@@ -70,6 +69,26 @@ const SHOW_HERO_GRID = true;
 ## Adding / editing copy
 
 All text content lives in `src/data/content.ts` as typed arrays. Edit there — no component changes needed for copy updates.
+
+## Deployment — Render
+
+Hosted as a **Web Service** on [Render](https://render.com).
+
+### Settings (Render dashboard)
+
+| Field | Value |
+|---|---|
+| Build command | `npm run build` |
+| Start command | `npm start` |
+| Auto-deploy | On push to `main` |
+
+`npm start` runs `vite preview --host --port $PORT`, which serves the `dist/` build on the port Render assigns.
+
+### Manual redeploy
+
+Push to `main` or click **Manual Deploy** in the Render dashboard.
+
+---
 
 ## TypeScript notes
 
