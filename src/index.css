@@ -1,0 +1,9 @@
+/* Base reset — all RAETEC-specific styles are in App.tsx and components via inline styles */
+body {
+  margin: 0;
+}
+
+#root {
+  /* Full-width, no centering constraint — the layout is owned by App */
+  width: 100%;
+}
